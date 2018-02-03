@@ -16,7 +16,6 @@ int main (int argc, char* argv[])
         cout<<"More argument needed";
         return 1;
     }
-//    string filename = "Specialsolution";
     for(int i = 1; i < argc; i++){
         int n = atoi(argv[i]);          //Number of discrete points
         double h = 1.0/n;
@@ -25,7 +24,7 @@ int main (int argc, char* argv[])
         double *y = new double[n+1];         //y vector in 'Au=y'
         double *u = new double[n+1];         //u vector in 'Au=y'
         double *x = new double[n+1];         //array of discretized x axis
- //       double *rel_err = new double[n+1];   //array of relative errors
+
         //Initialization vectors values
         u[0] = u[n] = 0.0;
         for(int i = 1; i < n; i++){

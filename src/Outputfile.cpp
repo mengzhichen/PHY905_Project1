@@ -24,10 +24,12 @@ void Outputfile(string filename, int n, double time, double *u, double *x){
         if (rel_err[i] > max_rel_err){
             max_rel_err = rel_err[i];
         }
-        ofile << setw(15) << setprecision(8) << x_val;
-        ofile << setw(15) << setprecision(8) << u[i];
-        ofile << setw(15) << setprecision(8) << u_exact(x_val);
-        ofile << setw(15) << setprecision(8) << rel_err[i] << endl;
+        if(i < 100){                                        // store first 100 value into the file
+            ofile << setw(15) << setprecision(8) << x_val;
+            ofile << setw(15) << setprecision(8) << u[i];
+            ofile << setw(15) << setprecision(8) << u_exact(x_val);
+            ofile << setw(15) << setprecision(8) << rel_err[i] << endl;
+        }
     }
     ofile.close();
     cout << "Maxium relative error is: " << max_rel_err << endl;

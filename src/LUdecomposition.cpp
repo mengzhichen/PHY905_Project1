@@ -24,10 +24,10 @@ int main(int argc, char** argv)
         cout<< i<<endl;
         int n = atoi(argv[i]);                        //Number of discrete points
         double h = 1.0/n;
-        double *y = new double[n];                  //y vector in 'Au=y'
-        double *u = new double[n];                  //u vector in 'Au=y'
+        double *y = new double[n];                    //y vector in 'Au=y'
+        double *u = new double[n];                    //u vector in 'Au=y'
         double *y_temp = new double[n-1];             //vector satisfies L*y_temp=y
-        double *x = new double[n];                  //vector of discretized x axis
+        double *x = new double[n];                    //vector of discretized x axis
         mat A(n-1,n-1), Low(n-1,n-1), Up(n-1,n-1);    //Define matrices
         //Initialization
         A.zeros();
@@ -43,8 +43,10 @@ int main(int argc, char** argv)
         y[n-1] = h*h*f((n-1)*h);
         
         clock_t start = clock();
+        
         //LU decomposition: A = L*U
         lu(Low,Up,A);
+        
         //Forward Substitution
         y_temp[0] = y[1];
         for (int i = 1; i < n - 1; i++){

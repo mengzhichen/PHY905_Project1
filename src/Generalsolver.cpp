@@ -7,8 +7,7 @@
 
 using namespace std;
 
-inline double f(double x){return 100.0*exp(-10*x);}
-//inline double u_exact(double x){return 1-(1-exp(-10))*x- exp(-10*x);}
+inline double f(double x){return 100.0*exp(-10*x);} 
 
 int main (int argc, char* argv[])
 {
@@ -19,15 +18,15 @@ int main (int argc, char* argv[])
     }
     string filename = "Generalsolution";
     for(int i = 1; i < argc; i++){
-        int n = atoi(argv[i]);          //Number of discrete points
+        int n = atoi(argv[i]);               //Number of discrete points
         double h = 1.0/n;
         // Setup vectors
-        double *a = new double[n+1];      //diagonal elements
-        double *b_up = new double[n+1];    //nondiagonal symmetric elements
+        double *a = new double[n+1];         //diagonal elements
+        double *b_up = new double[n+1];      //nondiagonal symmetric elements
         double *b_down = new double[n+1];    //nondiagonal symmetric elements
-        double *y = new double[n+1];      //y vector in 'Au=y'
-        double *u = new double[n+1];      //u vector in 'Au=y'
-        double *x = new double[n+1];      //vector of discretized x axis
+        double *y = new double[n+1];         //y vector in 'Au=y'
+        double *u = new double[n+1];         //u vector in 'Au=y'
+        double *x = new double[n+1];         //vector of discretized x axis
         //Initialization vectors values
         u[0] = u[n] = 0;
         for(int i = 1; i < n; i++){
