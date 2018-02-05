@@ -35,3 +35,5 @@
 *.m
 *.fig
 *.png
+*.xlsx
+*.csv
