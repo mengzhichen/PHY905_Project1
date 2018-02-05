@@ -1,5 +1,5 @@
 
-CXX := c++
+CXX := clang++
 
 CPPFLAGS := -std=c++14 -O3 
 CPPFLAGS2 := -std=c++14 -O3 -larmadillo -lm -llapack -lblas
