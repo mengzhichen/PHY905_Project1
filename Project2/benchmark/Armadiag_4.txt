@@ -1,4 +1,4 @@
-Diagonalization takes time: 0.015ms
+Diagonalization takes time: 0.013ms
 The input matrix size is: 4*4
 The input Matrix A is:
    2.00000000000000e+00  -1.00000000000000e+00   0.00000000000000e+00   0.00000000000000e+00

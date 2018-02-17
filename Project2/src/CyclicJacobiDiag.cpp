@@ -30,12 +30,12 @@ void Outputfile(string filename, mat A, mat B, vec v, int n, double time){
 // This function calculates cos(theta) and sin(theta) which are elements in S and S_t.
 void Cyclic_jacobi(mat A, int r, int c, double &co, double &si){
         double tau, tan;
-        tau = (A(c,c) - A(r,r))/2/A(r,c);
         if (A(r,c) != 0){
-            if (tau >= 0){
-                tan = -tau + sqrt(1 + tau * tau);}
-            else {
-                tan = -tau - sqrt(1 + tau * tau);}
+            tau = (A(c,c) - A(r,r))/2/A(r,c);
+            if (tau >= 0) {
+                tan = 1.0/(tau + sqrt(1.0 + tau*tau));
+            }
+            else tan = -1.0/(-tau + sqrt(1.0 + tau*tau));
             co = 1/(sqrt(1 + tan*tan));
             si = tan * co;
         }
@@ -44,7 +44,7 @@ void Cyclic_jacobi(mat A, int r, int c, double &co, double &si){
         }
     }
                             
-// Mainfunction diagonalzie tridiagonal Toeplitz matrix with size n-1 by using cyclic jacobi method.
+// Mainfunction diagonalzie tridiagonal Toeplitz matrix with size n-1 by using cyclic jacobi iteration.
 int main(int argc, char** argv)
 {
     int exponent = 0;
@@ -53,13 +53,14 @@ int main(int argc, char** argv)
         return 1;
     }
     string filename = "CyclicJacobi";
+    
     for(int i = 1; i < argc; i++){
         int n = atoi(argv[i]), iter = 1, maxiter = 1000;
         double co = 0.0;
         double si = 0.0;
         double tol = 0.001;
         
-        // Define matrices: A for tridiagonal Toeplitz matrix A; V for eigenvectors;
+        // Define matrices: A and A0 for tridiagonal Toeplitz matrix A; V for eigenvectors;
         // S and S_t are orthogonal transoformation matrices.
         mat A0(n-1,n-1), A(n-1,n-1);
         mat V =eye<mat>(n-1,n-1);
@@ -75,7 +76,7 @@ int main(int argc, char** argv)
             }
         }
         
-        //Calculate diagonal and off-diagonal Frobenius norm
+        //  Calculate diagonal and off-diagonal Frobenius norm
         double norm = 0.0, off_norm = 0.0;
         
         for (int i = 0; i < n - 1; i++){
@@ -84,13 +85,12 @@ int main(int argc, char** argv)
                 if (i != j) off_norm += A(i,j)*A(i,j);
             }
         }
-        //Define error global tolerence
+        // Define error global tolerence
         double delta = tol * norm;
         
-        //Loop stops until smaller than tolerence error or reach max iter
         clock_t start = clock();
-        
-        while (off_norm > delta || iter > maxiter){
+        // The loop stops until smaller than tolerence error or reach max iter times
+        while (off_norm > delta && iter < maxiter){
             for (int r = 0; r < n - 2; r++){
                 for (int c = r + 1; c < n - 1; c++){
                     Cyclic_jacobi(A, r, c, co, si);
@@ -108,13 +108,13 @@ int main(int argc, char** argv)
                     if (i != j) off_norm += A(i,j)*A(i,j);
                 }
             }
-            cout<<"iter = "<<iter<<endl;
             iter += 1;
         }
+        cout<<"iter = "<<iter<<endl;
         clock_t ends = clock();
         double elapsed_time = (double)(ends - start)/ CLOCKS_PER_SEC * 1000.0;
         
-        ///// place eigenvalues and eigenvecotrs in sequence
+        // place eigenvalues and eigenvecotrs in sequence
         for (int r = 0; r < n - 1; r++){
             for (int c = r; c < n - 1; c++){
                 if (A(r,r) > A(c,c)){

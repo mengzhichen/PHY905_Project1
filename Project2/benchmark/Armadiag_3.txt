@@ -1,4 +1,4 @@
-Diagonalization takes time: 0.029ms
+Diagonalization takes time: 0.027ms
 The input matrix size is: 3*3
 The input Matrix A is:
    2.00000000000000e+00  -1.00000000000000e+00   0.00000000000000e+00
