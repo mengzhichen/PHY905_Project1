@@ -38,7 +38,7 @@ int main(int argc, char** argv)
     string filename = "Armadiag";
     double pi = 3.14159265359;
     for(int i = 1; i < argc; i++){
-        int n = atoi(argv[i]);                         //Number of discrete points
+        int n = atoi(argv[i]) + 1;                         //Number of discrete points
         double *an_ev = new double[n-1];               //Vector for analytic egienvalues
         mat A(n-1,n-1), eigvec;                        //Input Toeplitz and eigenvectors matrix
         vec eigval;                                    //Vector for armadillo eigenvalues
