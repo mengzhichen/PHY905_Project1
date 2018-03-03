@@ -49,23 +49,19 @@ void Frobeniusnorm(mat A, double &norm, int n){
     }
 }
 
-// This function finds largest absoulte element and off-diagobal Frobenius norm
-// of input symmetric matrix A.
-void maxoffele(mat A, int &r, int &c, double &offnorm, int n){
-    offnorm = 0.0;
-    double max = 0.0;
+// This function finds largest absoulte element of input symmetric matrix A.
+void maxoffele(mat A, int &r, int &c, double &offmax, int n){
+    offmax = 0;
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n-1; j++){
             double max_temp = A(i,j) * A(i,j);
-            offnorm += max_temp;
-            if (max_temp > max){
-                max = max_temp;
+            if (max_temp > offmax){
+                offmax = max_temp;
                 r = i;
                 c = j;
             }
         }
     }
-    offnorm = 2.0 * offnorm;
 }
 
 // This function performs classical Jacobi's method to remove off-diagonal elements.

@@ -4,13 +4,13 @@
 
 TEST_CASE("Testing max off-diagonal element a(i,j)"){
     int n = 5;
-    double offnorm = 0.0, norm = 0.0;
+    double offmax = 0.0, norm = 0.0;
     int r = 0, c = 0;
     mat A = zeros<mat>(n-1,n-1);
     //initialize matrices and vector
     Initialization(A, norm, n);
     //find maximum off-diagonal matrix element
-    maxoffele(A, r, c, offnorm, n);
+    maxoffele(A, r, c, offmax, n);
     
     REQUIRE(r==0);
     REQUIRE(c==1);
@@ -18,17 +18,16 @@ TEST_CASE("Testing max off-diagonal element a(i,j)"){
 
 TEST_CASE("Test the conservation of Frobenius norm"){
     int n = 5, iter = 0, maxiter = 100;
-    double offnorm = 10.0, norm = 0.0, norm2 = 0.0;
+    double offmax = 10.0, norm = 0.0, norm2 = 0.0;
     int r = 0, c = 0;
     double tol = 0.001;
     mat A = zeros<mat>(n-1,n-1);
     mat eigvec = eye<mat>(n-1,n-1);
     //initialize matrix; set tolerence; 
     Initialization(A, norm, n);
-    double delta = tol * norm;
     //do Jacobi iteration until convergence
-    while (offnorm > delta && iter < maxiter){
-            maxoffele(A, r, c, offnorm, n);
+    while (offmax > tol && iter < maxiter){
+            maxoffele(A, r, c, offmax, n);
             jacobi(A, eigvec, r, c, n);
             iter += 1;
     }
@@ -39,7 +38,7 @@ TEST_CASE("Test the conservation of Frobenius norm"){
 
 TEST_CASE("Test for eigenvalues; correct eigenvectors and orthonormality"){
     int n = 4, iter = 0, maxiter = 100;
-    double offnorm = 10.0, norm = 0.0, norm2 = 0.0;
+    double offmax = 10.0, norm = 0.0, norm2 = 0.0;
     int r = 0, c = 0;
     double tol = 0.001;
     mat A = zeros<mat>(n-1,n-1);
@@ -47,10 +46,9 @@ TEST_CASE("Test for eigenvalues; correct eigenvectors and orthonormality"){
     vec eigval(n-1);
     //initialize matrices and vector
     Initialization(A, norm, n);
-    double delta = tol * norm;
     //do Jacobi iteration until convergence
-    while (offnorm > delta && iter < maxiter){
-            maxoffele(A, r, c, offnorm, n);
+    while (offmax > tol && iter < maxiter){
+            maxoffele(A, r, c, offmax, n);
             jacobi(A, eigvec, r, c, n);
             iter += 1;
     }

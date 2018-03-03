@@ -9,17 +9,14 @@ using namespace std;
 using namespace arma;
 
 // This function write results into file.
-void Outputfile(string filename, mat A, mat B, vec v, int n, double time){
+void Outputfile(string filename, vec v, int n, int rho, double time){
     string fileout = filename;
     string size = to_string(n);
-    fileout.append("_"+size+".txt");
+    string len = to_string(rho);
+    fileout.append("_n="+size+"_rho="+len+".txt");
     ofstream file(fileout);
     file << "Diagonalization takes time: " <<time << "ms"  << endl;
-    file << "The input matrix size is: "<<size<<"*"<<size<<endl;
-    file << "The input Matrix A is:" << endl;
-    A.save(file,raw_ascii);
-    file << "The eigenvectors are: " << endl;
-    B.save(file,raw_ascii);
+    file << "The section form 0 to "<<rho<< " is discretized with: "<<size<<" points"<<endl;
     file << "The eigenvalues are: " << endl;
     v.save(file,csv_ascii);
     file.close();
@@ -50,21 +47,19 @@ void Frobeniusnorm(mat A, double &norm, int n){
 
 // This function finds largest absoulte element and off-diagobal Frobenius norm
 // of input symmetric matrix A.
-void maxoffele(mat A, int &r, int &c, double &offnorm, int n){
-    offnorm = 0.0;
+void maxoffele(mat A, int &r, int &c, double &offmax, int n){
+    offmax = 0.0;
     double max = 0.0;
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n-1; j++){
             double max_temp = A(i,j) * A(i,j);
-            offnorm += max_temp;
-            if (max_temp > max){
-                max = max_temp;
+            if (max_temp > offmax){
+                offmax = max_temp;
                 r = i;
                 c = j;
             }
         }
     }
-    offnorm = 2.0 * offnorm;
 }
 
 // This function performs classical Jacobi's method to remove off-diagonal elements.
@@ -115,16 +110,15 @@ int main(int argc, char** argv)
     
     for(int i = 1; i < argc; i++){
         int rmin = 0, rmax = atoi(argv[i]);
-        double n = 1000.0;                       // Number of discrete points
+        double n = 500.0;                       // Number of discrete points
         double h = (rmax-rmin)/n;                // Step size
         double hh = h*h;
-        int iter = 0, maxiter = 1000;
+        int iter = 0, maxiter = 500000;
         int r = 0, c = 0;                       // cos(theta) and sin(theta)
-        double tol = 0.001;                     // error tolerence
-        double norm = 0.0, offnorm = 10.0;     // normal and off-diagonal Frobenius norm of input matrix A
+        double tol = 0.01;                     // error tolerence
+        double norm = 0.0, offmax = 10.0;      // A's Frobenius norm and max off-diagonal element
         
-        // Define matrices: A and A0 for tridiagonal Toeplitz matrix A; V for eigenvectors.
-        mat A0 = zeros<mat>(n-1,n-1);
+        // Define matrices: tridiagonal matrix A; V for eigenvectors.
         mat A = zeros<mat>(n-1,n-1);
         mat V = eye<mat>(n-1,n-1);
         vec u = zeros<vec>(n-1);               //coordinates of descretized points
@@ -134,15 +128,12 @@ int main(int argc, char** argv)
             u(i) = (i+1) * h;
         }
         Initialization(A, norm, n, u, hh);
-        Initialization(A0, norm, n, u, hh);
         // Define global error tolerence
-        double delta = tol * norm;
-        cout<< "delta = " << delta << endl;
         clock_t start = clock();
         
         // The Loop stops until smaller than tolerence error or reach max iter times.
-        while (offnorm > delta && iter < maxiter){
-            maxoffele(A, r, c, offnorm, n);
+        while (offmax > tol && iter < maxiter){
+            maxoffele(A, r, c, offmax, n);
             jacobi(A, V, r, c, n);
             iter += 1;
         }
@@ -170,7 +161,8 @@ int main(int argc, char** argv)
         for (int j = 0 ; j < 5; j++){
             cout<< eigval(j)<<endl;
         }
-       // Outputfile(filename, A0, V, eigval, n-1, elapsed_time);
+        cout << "Diagonalization takes time: " <<elapsed_time << "ms"  << endl;
+        Outputfile(filename, eigval, n, rmax, elapsed_time);
     }
     return 0;
 }

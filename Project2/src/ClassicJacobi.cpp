@@ -48,23 +48,19 @@ void Frobeniusnorm(mat A, double &norm, int n){
     }
 }
 
-// This function finds largest absoulte element and off-diagobal Frobenius norm
-// of input symmetric matrix A.
-void maxoffele(mat A, int &r, int &c, double &offnorm, int n){
-    offnorm = 0.0;
-    double max = 0.0;
+// This function finds largest absoulte element of input symmetric matrix A.
+void maxoffele(mat A, int &r, int &c, double &offmax, int n){
+    offmax = 0;
     for (int i = 0; i < n-1; i++){
         for (int j = i+1; j < n-1; j++){
             double max_temp = A(i,j) * A(i,j);
-            offnorm += max_temp;
-            if (max_temp > max){
-                max = max_temp;
+            if (max_temp > offmax){
+                offmax = max_temp;
                 r = i;
                 c = j;
             }
         }
     }
-    offnorm = 2.0 * offnorm;
 }
 
 // This function performs classical Jacobi's method to remove off-diagonal elements.
@@ -116,9 +112,9 @@ int main(int argc, char** argv)
     for(int i = 1; i < argc; i++){
         int n = atoi(argv[i])+1, iter = 0, maxiter = 1000;
         int r = 0, c = 0;                 // cos(theta) and sin(theta)
-        double tol = 0.001;               // error tolerence
+        double tol = 0.01;                // smallest element tolerence
          // normal and off-diagonal Frobenius norm of input matrix A
-        double norm = 0.0, offnorm = 10.0;
+        double norm = 0.0, offmax = 10.0;
         
         // Define matrices: A and A0 for tridiagonal Toeplitz matrix A; V for eigenvectors.
         mat A0 = zeros<mat>(n-1,n-1);
@@ -130,13 +126,12 @@ int main(int argc, char** argv)
         Initialization(A, norm, n);
         Initialization(A0, norm, n);
         // Define global error tolerence
-        double delta = tol * norm;
     
         clock_t start = clock();
         
         // The Loop stops until smaller than tolerence error or reach max iter times.
-        while (offnorm > delta && iter < maxiter){
-            maxoffele(A, r, c, offnorm, n);
+        while (offmax > tol && iter < maxiter){
+            maxoffele(A, r, c, offmax, n);
             jacobi(A, V, r, c, n);
             iter += 1;
         }
@@ -158,6 +153,7 @@ int main(int argc, char** argv)
         for (int i = 0; i < n-1; i++){
             eigval(i) = A(i,i);
         }
+        A0.print("A0:");
         A.print("A:");
         V.print("eigenvecors:");
         Outputfile(filename, A0, V, eigval, n-1, elapsed_time);

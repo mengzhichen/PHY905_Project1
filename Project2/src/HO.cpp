@@ -60,7 +60,9 @@ int main(int argc, char** argv)
                  else if (abs(i - j) == 1) A(i,j) = -1.0/hh;
              }
         }
-        
+        for (int i = 0; i< n-1; i++){
+            cout<<A(i,i)<<endl;
+        }
         //Diagonalization using armadillo lib; time collected.
         clock_t start = clock();
         eig_sym(eigval, A);
