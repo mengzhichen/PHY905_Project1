@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: /Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/.texpadtmp/Project2_report.aux
+The style file: plain.bst
+Database file #1: ../proj2_ref.bib
+Warning--to sort, need author or key in catch2
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            530 strings with 5219 characters,
+and the built_in function-call counts, 1664 in all, are:
+= -- 159
+> -- 61
+< -- 1
++ -- 25
+- -- 18
+* -- 78
+:= -- 283
+add.period$ -- 23
+call.type$ -- 7
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 66
+empty$ -- 156
+format.name$ -- 18
+if$ -- 354
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 40
+num.names$ -- 12
+pop$ -- 54
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 0
+skip$ -- 45
+stack$ -- 0
+substring$ -- 60
+swap$ -- 8
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 1
+while$ -- 14
+width$ -- 8
+write$ -- 75
+(There was 1 warning)

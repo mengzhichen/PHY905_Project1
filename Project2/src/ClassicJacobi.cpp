@@ -110,10 +110,11 @@ int main(int argc, char** argv)
     string filename = "ClassicJacobi";
     
     for(int i = 1; i < argc; i++){
-        int n = atoi(argv[i])+1, iter = 0, maxiter = 1000;
+        int n = atoi(argv[i])+1, iter = 0, maxiter = 100000;
         int r = 0, c = 0;                 // cos(theta) and sin(theta)
-        double tol = 0.01;                // smallest element tolerence
-         // normal and off-diagonal Frobenius norm of input matrix A
+        double pi = acos(-1.0);
+        double tol = 0.00000005;                // smallest element tolerence
+        double *an_ev = new double[n-1];               //  Vector for analytic egienvalues
         double norm = 0.0, offmax = 10.0;
         
         // Define matrices: A and A0 for tridiagonal Toeplitz matrix A; V for eigenvectors.
@@ -153,9 +154,23 @@ int main(int argc, char** argv)
         for (int i = 0; i < n-1; i++){
             eigval(i) = A(i,i);
         }
-        A0.print("A0:");
-        A.print("A:");
-        V.print("eigenvecors:");
+
+        // Analytic solutions
+        cout<<"First five Analytic eigenvalues:"<<endl;
+        for (int i = 0; i < n-1; i++){
+            an_ev[i] = 2 * (1 - cos((i+1)*pi/n));
+        }
+        cout <<setiosflags(ios::fixed);
+        for (int i = 0; i < 5; i++){
+            cout << setprecision(5)<<an_ev[i] <<endl;
+        }
+        cout.precision(5);
+        cout.setf(ios::fixed);
+        eigval.raw_print(cout,"eigval:");
+        cout<<"Execution time: "<<elapsed_time<<endl;
+        //A0.print("A0:");
+        //A.print("A:");
+        //V.print("eigenvecors:");
         Outputfile(filename, A0, V, eigval, n-1, elapsed_time);
     }
     return 0;

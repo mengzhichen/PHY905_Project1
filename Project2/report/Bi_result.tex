@@ -1,0 +1,33 @@
+
+To test the performances of the cyclic Jacobi and the bisection methods, we use these methods to diagonalize the matrix \ref{eq:matrixse}. 
+Treating Eq. \ref{analytical} as a standard benchmark, we adjust the error tolerances in algorithms to reproduce first five eigenvalues deviates smaller than $10^{-5}$ form their analytic values. 
+The execution time and speedup for different algorithms and sizes are shown in table \ref{bisectiontab}. 
+
+First of all, we see the speedup of cyclic Jacobi method increases with growing sizes, 
+because it cuts off the searching time which is proportional to the number of iterations, as well as the matrix size. 
+Generally speaking, the promotion we got from the cyclic Jacobi method is acceptable. 
+However, both these Jacobi's methods take a lot of time dealing with the matrix whose size is larger than 1,000.
+At that time, the bisection method shows its superiority. 
+We see its speedup is super-linear and the execution time is in control as the size growing up to 2,000.
+\begin{table}[]
+\centering
+\caption{Execution times and speedups for the classical Jacobi, cyclic Jacobi and bisection method for different inout matrix sizes.}
+\label{bisectiontab}
+\begin{tabular}{cccccc}
+\hline
+\hline
+Size & Classical Jacobi & \multicolumn{2}{c}{Cyclic Jacobi} & \multicolumn{2}{c}{Bisection Method} \\
+ \hline
+     & Execution time   & Execution time       & Speedup     & Execution time    & Speedup  \\
+     &(ms)   & (ms)      &     &(ms)   &  \\
+ \hline
+50   & 8.817            & 4.189               & 2.105       & 1.084            & 8.132      \\
+100  & 82.845           & 26.696              & 3.103       & 2.819            & 29.393     \\
+200  & 1340.239         & 208.239             & 6.436       & 7.845            & 170.833    \\
+500  & 35269.687        & 5085.778            & 6.935       & 34.520           & 1021.717   \\
+1000 &$\cdots$                  &$\cdots$                     &$\cdots$             & 119.494          &$\cdots$            \\
+2000 &$\cdots$                  &$\cdots$                     &$\cdots$             & 418.566          & $\cdots$           \\
+\hline
+\hline
+\end{tabular}
+\end{table}

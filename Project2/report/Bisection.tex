@@ -1,0 +1,76 @@
+\subsection{Bisection eigenvalue algorithm} \label{bisection}
+As we are usually interested in the symmetric tridiagonal eigenproblem, the bisection method can be applied. 
+The eigen-polynomial of a n-by-n tridiagonal matrix
+\begin{equation}
+A=\left[\begin{array}{cccccc}   
+    a_1 &    b_1    & 0   & \cdots  & \cdots  & 0\\  
+    b_1 &    a_2    & b_2  & 0       & \cdots  & 0\\
+    0 &    b_2    & a_3  & b_3       & \cdots  & 0\\ 
+    \vdots &    \vdots    & \ddots  & \ddots  & \ddots  & 0\\ 
+    0 &    \cdots    & \cdots  & b_{n-2}       & a_{n-1}  & b_{n-1}\\ 
+    0 &    \cdots    & \cdots  & 0       & b_{n-1}  & a_{n}\\ 
+\end{array}\right]
+\end{equation} 
+satisfies a general recurrence relation
+\begin{equation}
+	p_r(x)=(a_r-x)p_{r-1}(x)-b_{r-1}^2p_{r-2}(x)
+\end{equation}
+where $r=2:n$, $p_0(x)=1$ and $p_1(x)=a_1$.
+
+The Sturm sequence property\cite{golub2012matrix} reveals the relation between eigenvalues neighboring eigen-polynomials. 
+	The relation is 
+\begin{equation}
+	\lambda_r(A_r)<\lambda_{r-1}(A
+	_{r-1})<\lambda_{r-1}(A
+	_{r})<\cdots<\lambda_2(A
+	_{r})<\lambda_{1}(A_
+	{r-1})<\lambda_{1}(A_{r}).
+\end{equation}.
+Moreover, if $a(\alpha)$ denotes the number of sign changes in sequence
+\[
+	\left\{p_0(\alpha),p_1(\alpha),\cdots,p_n(\alpha)\right\},
+\]
+then $a(\alpha)$ equals the number of p's eigenvalues that are less than $\alpha$. 
+Also the Gershgorin theorem fixes the lower and upper bounds of eigenvalues. 
+The $\lambda_k(p)\in[y,z]$ where
+\begin{equation}\label{bounds}
+	y = \min_{1\le i \le n}a_i - |b_i| -|b_{i-1}|,\quad z = \max_{1\le i \le n}a_i + |b_i| + |b_{i-1}|.
+\end{equation}
+During the execution of the bisection method, information about the location of other eigenvalues is obtained.
+By keeping track of this information it is possible to extract subintervals for every eigenvalues. 
+See \cite{wilkinson1962calculation}.
+Then, we can apply the bisection method for each subinterval to yield corresponding eigenvalue. 
+In addition, in this method, we allocate space only for tridiagonal elements as others are not referred. 
+It saves us a lot of memory which is crucial for huge size  calculations.
+The implementation of the bisection method is illustrated in Algorithm \ref{BisectionAlgo}.
+\begin{algorithm}[tb]
+	\label{BisectionAlgo}
+	\caption{The bisection method for diagonalization of symmetric tridiagonal matrix $A\in R^{n\times n}$. }
+	\KwIn{Diagonal vector $\mathbf{a}$, off-diagonal vector $\mathbf{b}$, tolerence $tol$}
+	\KwOut{Eigenvalues in vector $\mathbf{u}$ and corresponding eigenvectors in columns of matrix $S\in\mathbb{R}^{n\times n}$. }
+	Calculate lower bound y and upper bound z
+	via Eq. \ref{bounds};\\
+	// Determine subintervals;\\
+	Calculate $p_n(y), p_n(z), a(y)$ and $a(z)$;\\
+	 \While{$a(z)-a(y) > 1$}
+    {
+		bisectional searching for bounds of subintervals and store them in vector $subint(n+1)$;
+    }
+    // Apply the bisection method to every subintervals;\\ 
+    \For{$i=0;i<n;i++$}
+	{
+	$y = subint(i)$, $z = subint(i+1)$;\\
+    \While{$rmax-rmin>tol$}
+    {
+		$x=(y+z)/2$;\\
+		\If {$p_n(x)*p_n(y)<0$}{$z=x$;}
+		\Else{$y=x$;}
+    }
+    $u(i) = x$;
+    }
+    // Calculate correlated eigenvectors;\\
+    \For{$i=0;i<n;i++$}
+    {
+    solve $(A-u(i)I)S(i,:) = 0;$
+    }
+\end{algorithm}

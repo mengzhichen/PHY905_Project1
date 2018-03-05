@@ -110,7 +110,7 @@ int main(int argc, char** argv)
     
     for(int i = 1; i < argc; i++){
         int rmin = 0, rmax = atoi(argv[i]);
-        double n = 500.0;                       // Number of discrete points
+        double n = 200.0;                       // Number of discrete points
         double h = (rmax-rmin)/n;                // Step size
         double hh = h*h;
         int iter = 0, maxiter = 500000;
