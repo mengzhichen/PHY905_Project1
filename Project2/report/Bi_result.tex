@@ -1,7 +1,7 @@
 
 To test the performances of the cyclic Jacobi and the bisection methods, we use these methods to diagonalize the matrix \ref{eq:matrixse}. 
 Treating Eq. \ref{analytical} as a standard benchmark, we adjust the error tolerances in algorithms to reproduce first five eigenvalues deviates smaller than $10^{-5}$ form their analytic values. 
-The execution time and speedup for different algorithms and sizes are shown in table \ref{bisectiontab}. 
+The execution time and speedup for different algorithms and sizes are shown in Table \ref{bisectiontab}. 
 
 First of all, we see the speedup of cyclic Jacobi method increases with growing sizes, 
 because it cuts off the searching time which is proportional to the number of iterations, as well as the matrix size. 
@@ -9,7 +9,7 @@ Generally speaking, the promotion we got from the cyclic Jacobi method is accept
 However, both these Jacobi's methods take a lot of time dealing with the matrix whose size is larger than 1,000.
 At that time, the bisection method shows its superiority. 
 We see its speedup is super-linear and the execution time is in control as the size growing up to 2,000.
-\begin{table}[]
+\begin{table}[tb]
 \centering
 \caption{Execution times and speedups for the classical Jacobi, cyclic Jacobi and bisection method for different inout matrix sizes.}
 \label{bisectiontab}

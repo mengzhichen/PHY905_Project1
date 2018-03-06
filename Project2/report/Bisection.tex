@@ -1,4 +1,3 @@
-\subsection{Bisection eigenvalue algorithm} \label{bisection}
 As we are usually interested in the symmetric tridiagonal eigenproblem, the bisection method can be applied. 
 The eigen-polynomial of a n-by-n tridiagonal matrix
 \begin{equation}
@@ -17,7 +16,7 @@ satisfies a general recurrence relation
 \end{equation}
 where $r=2:n$, $p_0(x)=1$ and $p_1(x)=a_1$.
 
-The Sturm sequence property\cite{golub2012matrix} reveals the relation between eigenvalues neighboring eigen-polynomials. 
+The Sturm sequence property \cite{golub2012matrix} reveals the relation between eigenvalues neighboring eigen-polynomials. 
 	The relation is 
 \begin{equation}
 	\lambda_r(A_r)<\lambda_{r-1}(A
@@ -38,7 +37,7 @@ The $\lambda_k(p)\in[y,z]$ where
 \end{equation}
 During the execution of the bisection method, information about the location of other eigenvalues is obtained.
 By keeping track of this information it is possible to extract subintervals for every eigenvalues. 
-See \cite{wilkinson1962calculation}.
+See Ref. \cite{wilkinson1962calculation}.
 Then, we can apply the bisection method for each subinterval to yield corresponding eigenvalue. 
 In addition, in this method, we allocate space only for tridiagonal elements as others are not referred. 
 It saves us a lot of memory which is crucial for huge size  calculations.
