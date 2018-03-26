@@ -38,7 +38,7 @@ void Verlet(int num_steps, double t_end, double pi){
     num_steps += 1;
     //Define and initialize coordinates x, y and their speed vx and vy
     vec x(num_steps), y(num_steps), vx(num_steps), vy(num_steps), t(num_steps);
-    x(0) = 1.0; y(0) = 0.0; vx(0) = 0.0;  vy(0)=2.0*pi; /*vy(0)= 1.3*2.0*pi;*/ t(0) = 0.0;
+    x(0) = 1.0; y(0) = 0.0; vx(0) = 0.0;  vy(0)= 1.3*2.0*pi; t(0) = 0.0;
     double r = 1.0;
     //Define and initialize kinetic, potential and total energy (in unit of M_sun*AU^2*yr^-2),
     //as well as angular momentum Lz (in unit of M_sun*AU^2*yr^-1)
