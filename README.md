@@ -15,3 +15,14 @@ Executbales in "src" include armdiallo diagonalization; classical & cyclic Jacob
 
 Partial resluts are in "benchmark", I don't want to include too much to cause chaos.
 
+2018.4.1 Update for Project3
+
+Executbales in "src" include the Earth-Sun system, Earth-Sun-Jupiter system and precission of Mercury. The Euler forward and velocity-Verlet method are implemented in the Earth-Sun system. The rests use the VV method. The first one can also be used to calculate the escape velocity. Execitables start form t =0 and require an input of t_end.
+Total number of steps need to be adjusted in codes.
+
+Test results for the Euler and VV-method are in "benmark".
+
+Some plots of orbits and data are included in "plot".
+
+See final summarized report in "report".
+

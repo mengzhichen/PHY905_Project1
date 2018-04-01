@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{graphicx} 
+\usepackage{authblk}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+\title{Numerical Method for Ordinary differential equations and Its Application in Physics}
+\author[1]{Mengzhi Chen}
+\author[1]{Tong Li}
+\affil[1]{Department of Physics and Astronomy, Michigan State University}
+\date{}
+
+\begin{document}
+	\maketitle
+	\begin{abstract}\label{abstract}
+Tong
+	\end{abstract}
+
+\section{Introduction}\label{intro} 
+	Tong
+	
+\section{Examples of ordinary differential problems in physics}\label{physcis_problem}
+	
+	\subsection{The Earth-Sun system}\label{earthsun}
+	\input{earthsun}
+	
+	\subsection{Many body problem}\label{quantumdot}
+	\input{manybody}
+	
+\section{Numerical methods}\label{method}
+  
+	\subsection{Euler forward method}\label{euler}
+	\input{euler}
+	
+	\subsection{Velocity-Verlet method} \label{verlet}
+	\input{velovityverlet}
+	
+	\subsection{Object oriented code development}\label{obj}
+	Tong
+	
+\section{Results and discussion}\label{results}
+
+	\subsection{Comparison between two methods}
+	\input{comparison}
+
+	\subsection{Escape velocity from the Sun}
+	\input{escape}
+	
+	\subsection{Extension to whole solar system}
+	Tong
+	
+	\subsection{The perihelion precession of Mercury}
+	\input{mercury}
+	
+\section{Conclusions}\label{conclude}
+Tong
+	
+	\section*{Acknowledgments}
+	We are grateful for the sincere guidance from Prof. Morten Hjorth-Jensen. 
+	
+	\nocite{*} 
+	\bibliographystyle{unsrt}
+	\bibliography{proj3_ref}
+\end{document}

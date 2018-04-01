@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{catch2}
+Github - catchorg/{C}atch2: {A} modern, {C}++-native, header-only, test
+  framework for unit-tests, {TDD} and {BDD} - using {C}++11, {C}++14, {C}++17
+  and later (or {C}++03 on the {C}atch1.x branch).
+\newblock \url{https://github.com/catchorg/Catch2}.
+\newblock Accessed Mar 5, 2018.
+
+\bibitem{golub2012matrix}
+Gene~H Golub and Charles~F Van~Loan.
+\newblock {\em Matrix computations}, volume~3.
+\newblock JHU Press, 2012.
+
+\bibitem{mortenweb}
+Morten Hjorth-Jensen.
+\newblock Computational physics lectures: Eigenvalue problems.
+\newblock
+  \url{https://compphysics.github.io/ComputationalPhysicsMSU/doc/pub/eigvalues/html/eigvalues.html}.
+\newblock Accessed Mar 5, 2018.
+
+\bibitem{mortenweb2}
+Morten Hjorth-Jensen.
+\newblock Project 2.
+\newblock
+  \url{https://compphysics.github.io/ComputationalPhysicsMSU/doc/Projects/2018/Project2/html/Project2.html}.
+\newblock Accessed Mar 5, 2018.
+
+\bibitem{sanderson2016armadillo}
+Conrad Sanderson and Ryan Curtin.
+\newblock Armadillo: a template-based {C}++ library for linear algebra.
+\newblock {\em Journal of Open Source Software}, 2016.
+
+\bibitem{trefethen1997numerical}
+Lloyd~N Trefethen and David Bau~III.
+\newblock {\em Numerical linear algebra}.
+\newblock Siam, 1997.
+
+\bibitem{wilkinson1962calculation}
+JH~Wilkinson.
+\newblock Calculation of the eigenvalues of a symmetric tridiagonal matrix by
+  the method of bisection.
+\newblock {\em Numerische Mathematik}, 4(1):362--367, 1962.
+
+\end{thebibliography}

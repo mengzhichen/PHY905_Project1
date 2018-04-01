@@ -1,0 +1,45 @@
+In physics, the escape velocity from the Sun is defined as the minimum speed needed for an object to escape from its gravitational influence.
+An object starts from the Earth with a initial speed $v_i$. 
+Suppose it can goes to infinity far at which potential energy is zero. 
+At the same time, it has a minimum kinetic energy zero.
+Due to the energy conservation, we can generalize the formula for the escape velocity
+\begin{equation}
+	\label{escape}
+	\frac{mv_e^2}{2} - GM_{\mathrm{S}}m/r = 0\Longrightarrow v_e = \sqrt{\frac{2GM_{\mathrm{S}}}{r}}.
+\end{equation}
+We can see from Eq. \ref{escape} that the escape velocity $v_e$ is independent of the mass of object.
+In our unit system $v_e = 2\sqrt{2}\pi$ which larger than the speed of circular $v_c$ a factor of $\sqrt{2}$.
+
+We would like to use a trial and error method to find the escape velocity.
+In our calculation, we fix the step size $h=0.001$ and set up a criteria for escape.
+It is if an object doesn't start to turn back after time $t_c$, then it be regarded as a successful escape.
+We initialize our calculation the same as in Algorithm \ref{alg::verlet} except a different $v_{y}^0=2\pi \alpha$, where $\alpha$ is a constant larger than 1.
+With $1.3<\sqrt{2}<1.5$, we have a lower and upper bounds for $\alpha$ where we can start a binary search for $v_e$.
+
+The results for different $t_c$ are presented in Table \ref{tab::escape}. 
+From the table, we find $\alpha/\sqrt{2}$ converges to one as increasing $t_c$. 
+Moreover, the total energy gets closer to zero at the same time.
+In sum, We would expect $v_e$ and $E_tot$ converge their theoretical value $2\sqrt{2}\pi$ and zero eventually. 
+
+\begin{table}[tb]
+	\centering
+	\caption{The escape velocity factor $\alpha/\sqrt{2}$ in $v_e=2\pi \alpha$ and total energy for different $t_c$.}
+	\label{my-label}
+	\label{tab::escape}
+	\begin{tabular}{ccc}
+	\hline
+	\hline
+	$t_c$  & $\alpha/\sqrt{2}$          & $E_{tot}$          \\
+	\hline
+	500   & 0.998968061 & -5.9E-07 \\
+	1000  & 0.998418985 & -3.7E-07 \\
+	2000  & 0.999002447 & -2.4E-07 \\
+	5000  & 0.999456311 & -1.3E-07 \\
+	10000 & 0.999655708 & -0.8E-07 \\
+	20000 & 0.999781297 & -0.5E-07 \\
+	50000 & 0.999879019 & -0.3E-07\\
+	\hline
+	\hline
+	\end{tabular}
+\end{table}
+	

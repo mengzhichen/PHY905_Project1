@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{toxvaerd2012energy}
+S{\o}ren Toxvaerd, Ole~J Heilmann, and Jeppe~C Dyre.
+\newblock Energy conservation in molecular dynamics simulations of classical
+  systems.
+\newblock {\em The Journal of chemical physics}, 136(22):224106, 2012.
+
+\bibitem{wiki:xxx}
+Wikipedia contributors.
+\newblock Two-body problem in general relativity --- wikipedia{,} the free
+  encyclopedia, 2018.
+\newblock [Online; accessed 1-April-2018].
+
+\bibitem{mortenweb}
+Morten Hjorth-Jensen.
+\newblock Computational physics lectures: Eigenvalue problems.
+\newblock
+  \url{https://compphysics.github.io/ComputationalPhysicsMSU/doc/pub/eigvalues/html/eigvalues.html}.
+\newblock Accessed Mar 5, 2018.
+
+\end{thebibliography}

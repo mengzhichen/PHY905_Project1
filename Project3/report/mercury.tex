@@ -1,0 +1,41 @@
+Historically, the discrepancy between the observed and calculated values of perihelion precession of Mercury were not able to be accounted by classical Newtonian mechanics.
+Until the introduction of general relativity, the problem was solved.
+It also labeled as a great success of general relativity.
+The value results from relativistic correction is about $\delta \varphi\approx 43^{''}$ per century\cite{wiki:xxx}.
+In order to get this value, we introduce a correction to our gravitational force, so that the force becomes
+\begin{equation}
+	\vec{F}_G = \frac{GM_{\mathrm{S}}M_{\mathrm{M}}\hat{r}}{r^2}\left[1+\frac{3l^2}{r^2c^2}\right],
+\end{equation}
+where $M_{\mathrm{M}}$ is the mass of Mercury, l is $\vec{r}\times \vec{v}$ and $c$ is the speed of light in vacuum.
+
+In our calculation, we use the Mercury mass and new force to calculate the acceleration.
+The system initials from $x_0=0.3075$, $y_0=0$, $v_{x}^0=0$ and $v_{y}^0=12.44$. 
+For this elliptical orbit, theoretical calculation gives a period $T_m\approx 0.24073$yr.
+We also notice for a resolution higher to $1^{''}$, we have to use a very small step size.
+
+Before setting up the step size, we did a rough estimation.
+The Mercury moves about 420 circles in a century which is about 5.5E08 degrees. 
+To distinguish 1'' for a century, we need a step size $h$ = 100/5.5E08 $\approx$ 1.84E-07. 
+Therefore, $h$ = 1.0E-07 would be a good choice.
+
+We try different $h$ in our calculations and the final results are given in Table \ref{tab::mercury}.
+The outcomes justify our estimation that the error will less than $1^{''}$ for $h$ = 1.0E-07.
+Eventually, our calculation gives $\delta \varphi=42.9333^{''}$ with $h$ smaller to 5.0E-08 which is very close to the theoretical value 43$^{''}$.
+\begin{table}[tb]
+	\centering
+	\caption{The perihelion precession angle $\delta \varphi$ of Mercury due to relativistic correction after one century. }
+	\label{my-label}
+	\label{tab::mercury}
+	\begin{tabular}{cc}
+	\hline
+	\hline
+	$h$        & $\delta \varphi$     \\
+	\hline
+	5.00E-07 & 53.2277$^{''}$ \\
+	2.00E-07 & 45.8665$^{''}$ \\
+	1.00E-07 & 42.8183$^{''}$ \\
+	5.00E-08 & 42.9333$^{''}$\\
+	\hline
+	\hline
+	\end{tabular}
+\end{table}

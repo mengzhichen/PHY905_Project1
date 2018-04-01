@@ -1,0 +1,185 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdftex 2016.7.26)  5 MAR 2018 16:42
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex
+(/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:1: Undefined control sequence.
+l.1 \subsection
+               {Cyclic Jacobi method}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:6: Undefined control sequence.
+l.6 \subsection
+               {Bisection eigenvalue algorithm}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:9: Undefined control sequence.
+l.9 \begin
+          {equation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:10: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \left 
+l.10 A=\left
+            [\begin{array}{cccccc}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:10: Undefined control sequence.
+l.10 A=\left[\begin
+                   {array}{cccccc}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:11: Misplaced alignment tab character &.
+l.11     a_1 &
+                  b_1    & 0   & \cdots  & \cdots  & 0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:11: Misplaced alignment tab character &.
+l.11     a_1 &    b_1    &
+                           0   & \cdots  & \cdots  & 0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:11: Misplaced alignment tab character &.
+l.11     a_1 &    b_1    & 0   &
+                                 \cdots  & \cdots  & 0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:11: Misplaced alignment tab character &.
+l.11     a_1 &    b_1    & 0   & \cdots  &
+                                           \cdots  & 0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:11: Misplaced alignment tab character &.
+l.11 ..._1 &    b_1    & 0   & \cdots  & \cdots  &
+                                                   0\\
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+Runaway argument?
+ b_1 & a_2 & b_2 & 0 & \cdots & 0\\ 0 & b_2 & a_3 & b_3 & \cdots & 0\\\ETC.
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:24: Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.24 
+     
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \par 
+l.24 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:24: Missing \right. inserted.
+<inserted text> 
+                \right .
+<to be read again> 
+                   $
+<to be read again> 
+                   \par 
+l.24 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:25: Undefined control sequence.
+l.25 The Sturm sequence property\cite
+                                     {golub2012matrix} reveals the relation ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:27: Undefined control sequence.
+l.27 \begin
+           {equation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:28: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \lambda 
+l.28 	\lambda
+             _r(A_r)<\lambda_{r-1}(A
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+/Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/Bisection.tex:33: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \end 
+l.33 \end
+         {equation}.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] )</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on /Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project2/report/.texpadtmp/Bisection.pdf (1 page, 57490 bytes).
+PDF statistics:
+ 32 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

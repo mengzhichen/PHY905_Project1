@@ -1,0 +1,22 @@
+In the above Sec. \ref{earthsun}, we simplify the calculation of the orbit of the Earth by taking into account only it's interaction with the Sun. 
+This simplification is reasonable as the Sun is much heavier than other planets in the solar system. 
+
+However, if we want to go a step further to get a more precise description of the Earth's orbit. 
+We have to include distortions from other seven planets as well as the Pluto.
+We should also abandon our previous static Sun setup but using the real center of mass of the solar system.
+Until now, we have a new set of ODEs for the Earth
+
+\begin{equation}
+	\left\{  
+             \begin{array}{lr}  
+             	\frac{dx}{dt} = v_x \\
+				\frac{dy}{dt} = v_y \\
+            	\frac{dv_x}{dt} = \sum\limits_{i=1}^{n}-\frac{GM_{\mathrm{i}}x_i}{r_i^3} \\
+				\frac{dv_y}{dt} = \sum\limits_{i=1}^{n}-\frac{GM_{\mathrm{i}}y_i}{r_i^3},
+			\end{array}  
+	\right. 	
+\end{equation}
+where $i$ runs over all other celestial bodies except the Earth itself. 
+Besides the Earth, we have similar sets of ODEs for every celestial body.
+
+By solving these coupled ODEs, we can obtain a full description for the solar system.
