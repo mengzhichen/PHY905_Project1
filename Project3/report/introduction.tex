@@ -1,0 +1,41 @@
+The initial value problem often appears in physics, especially in Newtonian mechanics. 
+Applying Newton's second law on a $n$-body system with no external force, we obtain the equations of motion 
+\begin{equation}\label{eq:newton}
+m_i\frac{d^2\vec{r}_i}{dt^2}=\sum_{j=1,\ j\neq i}^{n}\vec{F}_{ij},\ i=1,2,\cdots n, 
+\end{equation}
+where $m_i$, $\vec{r}_i$ and $\vec{F}_{ij}$ are the mass of object $i$, coordinate of object $i$ 
+and force between object $i$ and $j$, respectively. 
+Here we have $\vec{F}_{ij}=-\vec{F}_{ji}\ (i\neq j)$. 
+Eq. \ref{eq:newton} can be transformed into a set of first-order differential equations: 
+\begin{equation}\label{eq:firstorder}
+	\left\{  
+	\begin{array}{lr}  
+	\vec{v}_i=\frac{d\vec{r}_i}{dt} \\
+	\frac{d\vec{v}_i}{dt}=\frac{1}{m_i}\sum_{j=1,\ j\neq i}^{n}\vec{F}_{ij} 
+	\end{array}  
+	\right. 
+	\ i=1,2,\cdots n, 
+\end{equation}
+where $\vec{v}_i$ is the velocity of object $i$. 
+Eq. \ref{eq:firstorder} should be solved with specified initial $\vec{r}_i$ and $\vec{v}_i$, namely 
+\begin{equation}
+	\left\{  
+	\begin{array}{lr}  
+	\vec{r}_i(t_0)=\vec{r}^{(0)}_i \\
+	\vec{v}_i(t_0)=\vec{v}^{(0)}_i
+	\end{array}  
+	\right. 
+	\ i=1,2,\cdots n, 
+\end{equation}
+where $t_0$ is the initial time (usually $t_0=0$). 
+\par
+In the history of physics, the great success of Newtonian mechanics was partly from 
+its (almost) perfect explanation of planets' motion in the solar system. 
+Eq. \ref{eq:newton} of a two-body system with gravity has an analytical solution, 
+which gives a conic section orbit. 
+However, a $n$-body ($n>2$) system with gravity cannot be solved analytically, 
+making it necessary to explore the numerical methods for the initial value problem. 
+In Sec. \ref{physcis_problem} we will give the equations for both two- and many-body systems with gravity, 
+and discuss two numerical methods (Euler's forward and Velocity-Verlet methods) in Sec. \ref{method}. 
+Sec. \ref{results} will discuss and compare the results of applying
+these two methods on the Earth-Sun, Earth-Sun-Jupiter and whole solar system. 

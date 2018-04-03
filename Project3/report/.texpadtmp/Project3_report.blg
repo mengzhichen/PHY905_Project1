@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: /Users/Mengzhi/Desktop/PHY905/PHY905_Projects/Project3/report/.texpadtmp/Project3_report.aux
+The top-level auxiliary file: /Users/Mengzhi/Desktop/PHY905/CompPhy_Project/Project3/report/.texpadtmp/Project3_report.aux
 The style file: unsrt.bst
 Database file #1: ../proj3_ref.bib
-You've used 3 entries,
+You've used 4 entries,
             1791 wiz_defined-function locations,
-            464 strings with 4223 characters,
-and the built_in function-call counts, 512 in all, are:
-= -- 41
-> -- 19
+            469 strings with 4319 characters,
+and the built_in function-call counts, 621 in all, are:
+= -- 51
+> -- 20
 < -- 0
-+ -- 8
++ -- 9
 - -- 5
 * -- 23
-:= -- 87
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 3
+:= -- 98
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 19
-empty$ -- 60
+cite$ -- 4
+duplicate$ -- 24
+empty$ -- 78
 format.name$ -- 5
-if$ -- 113
+if$ -- 142
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 4
 missing$ -- 1
-newline$ -- 19
+newline$ -- 24
 num.names$ -- 3
-pop$ -- 15
+pop$ -- 23
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 8
+skip$ -- 11
 stack$ -- 0
 substring$ -- 18
-swap$ -- 3
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
 while$ -- 4
-width$ -- 4
-write$ -- 34
+width$ -- 5
+write$ -- 43

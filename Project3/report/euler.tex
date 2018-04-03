@@ -19,7 +19,7 @@ Using Taylor expansion, we get
 	x_{i+1} = x_i + \frac{dx_i}{dt}h + \frac{d^2x_i}{dt^2}h^2 + O(h^3),
 \end{equation}
 where i goes from 0 to $N-1$.
-The Euler forward method truncates at the second term of the above equation.
+The Euler's forward method truncates at the second term of the above equation.
 Thus, Eq. \ref{eulerexpan} becomes
 
 \begin{equation}
@@ -43,13 +43,13 @@ Getting back to the Earth-Sun system, we can formulate Eq. \ref{earthsunodes} to
 	\right.	
 \end{equation} 
 in unit of AU for length, year (yr) for time and $M_{\mathrm{S}}$ for mass. 
-We will keep using these units in our report calculations. 
+We will keep using this unit system in our report and calculations. 
 Starting from some initial conditions, we can simply solve out time evolution of the Earth iteratively. 
-Our implementation of this method with circular orbit initial conditions is shown in Algorithm \ref{alg::euler}. 
+Our implementation of this method with a  circular orbit initial conditions is shown in Algorithm \ref{alg::euler}. 
 
 \begin{algorithm}[tb]
+	\caption{The Euler's forward method for the Earth-Sun system. It initials from a circular orbit.}
 	\label{alg::euler}
-	\caption{The Euler forward method for the Earth-Sun system. It initials from a circular orbit.}
 	\KwIn{$x_0=1$, $y_0=0$, $v_{x}^0=0$, $v_{y}^0=2\pi$, $M_{\mathrm{E}}$, $M_{\mathrm{S}}$, $G$ }
 	\KwOut{$\vec{x}$=($x_0$,$x_1$,...,$x_N$), $\vec{y}$, $\vec{v}_x$, $\vec{v}_y$, $\vec{E}_k$, $\vec{E}_p$, $\vec{E}$, $\vec{L}_z$} 
 	$r$ = sqrt($x_0^2$+$y_0^2$)\;
@@ -69,7 +69,7 @@ Our implementation of this method with circular orbit initial conditions is show
 	return $\vec{x}$, $\vec{y}$, $\vec{v}_x$, $\vec{v}_y$, $\vec{E}_k$, $\vec{E}_p$, $\vec{E}$, $\vec{L}_z$\;
 \end{algorithm}
 
-We can see that the Euler forward method is easy to be realized.
- However, it has a vital defects that it violates the energy conservation and time reversibility.
- The total energy increases with time in the Euler forward method.
+We can see that the Euler's forward method is easy to be realized.
+ However, it has vital defects that it violates the energy conservation and time reversibility.
+ The total energy increases with time in the Euler's forward method.
  That's why we need the Velocity-Verlet method to describe physical systems.

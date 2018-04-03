@@ -1,14 +1,17 @@
-The velocity-Verlet method is widely used in molecular dynamics calculation as it overcomes these defects. It conserves energy with small round-off errors\cite{toxvaerd2012energy}.
+The Velocity-Verlet method is widely used in molecular dynamics calculation as it overcomes above defects. It conserves energy within small round-off errors\cite{toxvaerd2012energy}.
 
-Staring from the Taylor expansions under same discretization
+Staring from the Taylor expansions under same discretization for both displacement and velocity
 
 \begin{equation}
+	\label{eqt::verlet}
 	\begin{aligned}
 		x_{i+1} = x_i + x_i^{(1)}h + x_i^{(2)}h^2 + O(h^3),\\
 		v_x^{i+1} = v_x^{i} + v_x^{i(1)}h + v_x^{i(2)}h^2 + O(h^3),
 	\end{aligned}
 \end{equation}
-with a initial value $x_0$ and $v_x^0$ at time $t_0$. We truncate at the third term and evaluate $v_x^{i(2)}h \approx v_x^{i+1(1)}-v_x^{i(1)}$. We can see that velocity-Verlet method is a two-step method with a local error $O(h^3)$
+with initial values $x_0$ and $v_x^0$ at time $t_0$. 
+We truncate at the third term and evaluate $v_x^{i(2)}h \approx v_x^{i+1(1)}-v_x^{i(1)}$, 
+from which and Eq. \ref{eqt::verlet} we can see that the Velocity-Verlet method is a two-step method with a local error $O(h^3)$
 
 In the Earth-Sun system, with this method, we can formulate Eq. \ref{earthsunodes} to
 
@@ -22,11 +25,12 @@ In the Earth-Sun system, with this method, we can formulate Eq. \ref{earthsunode
 			\end{array}  
 	\right.	
 \end{equation} 
-We show our realization of the velocity-Verlet method in Algorithm \ref{alg::verlet}. Compared with the Euler forward method, we can see the calculations in this method is more complicated.
+We show our realization of the Velocity-Verlet method in Algorithm \ref{alg::verlet}. 
+Compared with the Euler's forward method, we can see the processes in this method are more complicated with more calculations involved.
 
 \begin{algorithm}[tb]
-	\label{alg::verlet}
 	\caption{The Velocity-Verlet method for the Earth-Sun system. It initials from a circular orbit.}
+	\label{alg::verlet}
 	\KwIn{$x_0=1$, $y_0=0$, $v_{x}^0=0$, $v_{y}^0=2\pi$, $M_{\mathrm{E}}$, $M_{\mathrm{S}}$, $G$ }
 	\KwOut{$\vec{x}$=($x_0$,$x_1$,...,$x_N$), $\vec{y}$, $\vec{v}_x$, $\vec{v}_y$, $\vec{E}_k$, $\vec{E}_p$, $\vec{E}$, $\vec{L}_z$} 
 	$r$ = sqrt($x_0^2$+$y_0^2$)\;
