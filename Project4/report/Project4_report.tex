@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{amsmath} 
+\usepackage{graphicx} 
+\usepackage{authblk}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage[linesnumbered,boxed]{algorithm2e}
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+\title{Quantum Monte Carlo method and and Its Application in Physics}
+\author{Mengzhi Chen}
+\affil{Department of Physics and Astronomy, Michigan State University}
+\date{}
+
+\begin{document}
+	\maketitle
+	\begin{abstract}\label{abstract}
+Monte Carlo (MC) method is widely used in scientific computations.
+This method relies on huge amount of random samplings to obtain numerical results.
+MC method shows high efficiency and precision when dealing with many complex problems, such as non-analytic and high demential integrals. 
+In this report we apply MC method together with variational principle to calculate the ground state energy of two electrons moving in a harmonic oscillator(H.O.) potential.
+We assumed two forms of trial wave functions with parameters. 
+By using MC method, we find their optimistic parameters corresponding to ground state energies.
+The agreements with results from diagonalization method (in Project 2) validate our MC simulations.
+We also test the virial theorem for different relative strength between H.O. potential and Coulomb repulsion.
+
+	\end{abstract}
+
+\section{Introduction}\label{intro} 
+\input{introduction}
+
+\section{A physicical system}\label{phys}
+\input{physics}
+	
+	
+\section{Numerical methods}\label{method}
+	\subsection{Metropolis algorithm}\label{metro}
+	\input{metro}
+
+	
+	\subsection{Variational Monte Carlo(VMC) method} \label{vmc}
+	\input{vmc}
+
+
+	
+\section{Results and discussions}\label{results}
+
+	\subsection{First trail wave function}
+	\input{first}
+
+
+	\subsection{Second trail wave function}
+	\input{second}
+
+	
+	\subsection{Test of virial theorem}
+	\input{virial}
+
+	
+\section{Conclusions}\label{conclude}
+	\input{con}
+	
+	\section*{Acknowledgments}
+	We are grateful for the sincere guidance from Prof. Morten Hjorth-Jensen. 
+	
+	\nocite{*} 
+	\bibliographystyle{unsrt}
+	\bibliography{proj4_ref}
+\end{document}

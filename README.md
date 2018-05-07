@@ -26,3 +26,11 @@ Some plots of orbits and data are included in "plot".
 
 See final summarized report in "report".
 
+2018.5.7 Update for Project4
+
+Executbales in "src" include "vmc.x" for the first trail wave function and "vmc2.x" for the second trail wave function. In "vmc.x", the omega and step is required for input. Only omega is required for "vmc2.x", so step need to be adjusted by hand.
+
+Test results for both (omega=1) are in "benmark".
+
+See final summarized report in "report".
+

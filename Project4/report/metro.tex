@@ -1,0 +1,48 @@
+Sampling strategy is the crucial part in a MC simulation.
+Metropolis algorithm solves the problem of sampling from a targeted complex distribution.
+Before introducing this algorithm, we first need to understand the Markov chain and transfer matrix.
+A Markov chain together with a transfer matrix $P$ describe evolution of a system from initial $\pi_0(x)$ to equilibrium $\pi(x)$.
+$\pi_i(x)$ is status at moment $i$ and it only relies on previous status $i-1$ by $P$
+\begin{equation}
+	\pi_i(x)=\pi_{i-1}(x)P = ... = \pi_0(x)P^i
+\end{equation}
+At equilibrium, we have 
+\begin{equation}
+	\pi_n(x)=\pi_{n-1}(x)P = ... = \pi(x)
+\end{equation}
+Practically, we often know the information of equilibrium $\pi(x)$. 
+However, it's hard to obtain how system evolves as $P$ which prevents our direct sampling.
+In this situation, we need the help of Metropolis algorithm. 
+
+At equilibrium, the system has detailed balance condition
+\begin{equation}\label{detail}
+	\pi(i)P(i,j)=\pi(j)P(j,i).
+\end{equation} 
+This condition is not valid for a random transfer matrix $Q$.
+In Metropolis algorithm, we introduce an acceptance probability $\alpha(i,j)=P(i,j)Q(j,i)$, so Eq. \ref{detail} can be fulfilled as
+\begin{equation}\label{detail}
+	\pi(i)Q(i,j)\alpha(i,j)=\pi(j)Q(j,i)\alpha(j,i).
+\end{equation} 
+for any $Q$ we used.
+Then, the aimed transfer matrix $P(i,j)=Q(i,j)\alpha(i,j)$
+
+\begin{algorithm}[tb]
+	\caption{Metropolis algorithm}
+	\label{alg::metro}
+	\KwIn{transfer matrix $Q$, equilibrium $\pi(x)$ }
+	\KwOut{samples ($x_{n1},x_{n1+1},...,x_{n1+n2-1}$)} 
+    // Sampling from n1 to n1+n2-1\;
+    \For{$i=0;i<n1+n2-1;i++$}
+    {Taking sample from $Q(x^{\ast}|x_i)$\;
+    Taking $u$ ~ uniform[0,1]\;
+    \If{u$< \pi(x^{\ast})*Q$}
+    {
+    accept transfer $x_{i+1}=x^{\ast}$
+    }
+    Otherwise $x_{i+1}=x_{i}$
+    }
+	return ($x_{n1},x_{n1+1},...,x_{n1+n2-1}$)\;
+\end{algorithm}
+
+The flow of Metropolis algorithm is shown is Alg. \ref{alg::metro}. 
+In a word, we can approximate an unusual distribution from a usual one through acceptance and rejection with certain probabilities.

@@ -54,11 +54,11 @@ int main(int argc, char** argv)
 
         for (int i = 0; i < n - 1; i++){
              for (int j = 0; j < n - 1; j++){
-                 if (i == j) A(i,j) = 2.0/hh + omega*omega*u(i)*u(i) + 1/u(i);
+                 if (i == j) A(i,j) = 2.0/hh + omega*omega*u(i)*u(i)+ 1/u(i);
                  else if (abs(i - j) == 1) A(i,j) = -1.0/hh;
              }
         }
-
+        //+ 1/u(i)
         //Diagonalization using armadillo lib; time collected.
         clock_t start = clock();
         eig_sym(eigval, A);

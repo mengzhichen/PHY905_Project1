@@ -1,0 +1,33 @@
+In quantum mechanics, variational principle is usually used to obtain ground state properties of physical systems.
+We first assume a variational wave function $\Phi_t(\alpha,\vec{R})$ with parameters $\alpha$.
+This wave function should be as close as to exact one for better approximation.
+The energy of this trail wave function can be calculated and minimized with regard to variational parameters
+\begin{equation}\label{var}
+	<H(\alpha)>=\frac{\int d\vec{R}\Phi_t^\ast(\alpha,\vec{R})\hat{H}(\vec{R})\Phi_t(\alpha,\vec{R})}{\int d\vec{R}\Phi_t^\ast(\alpha,\vec{R})\Phi_t(\alpha,\vec{R})};\ \frac{dH}{d\alpha}=0.
+\end{equation}
+This lowest energy of the trail wave function is an approximation of exact ground energy of the system.
+
+Monte Carlo(MC) method is best applicable for high demential integrals as usually seen in quantum many-body problems.
+Combining variational principle and MC method, we can solve integrals in Eq. \ref{var}.
+In order to evaluate this integral, we define two qualities local energy and probability
+\begin{equation}\label{local}
+		E_L(\vec{R},\alpha)=\frac{\hat{H}\Phi_t(\alpha,\vec{R})}{\Phi_t(\alpha,\vec{R})}
+\end{equation}
+\begin{equation}\label{local}
+		P(\vec{R},\alpha)=\frac{\Phi_t^\ast(\alpha,\vec{R})\Phi_t(\alpha,\vec{R})}{\int d\vec{R}\Phi_t^\ast(\alpha,\vec{R})\Phi_t(\alpha,\vec{R})}.
+\end{equation}
+Having above two equations, Eq. \ref{var} can be expressed as 
+\begin{equation}
+	<H(\alpha)>=\int d\vec{R}P\cdot E_L \approx \frac{1}{N}\sum_{i=1}^{N-1}P\cdot E_L
+\end{equation}
+which can be evaluated through MC simulations.
+
+The report is organized as follows. 
+In Sec. \ref{phys}, we give an introduction to the physical system we studied in detail.
+In Sec. \ref{method}, we show both famous Metropolis algorithm and our algorithm based on it.
+We present our results and discussions in Sec. \ref{results}.
+Finally, a conclusion is given.
+
+
+
+

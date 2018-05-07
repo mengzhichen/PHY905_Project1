@@ -1,0 +1,27 @@
+The idea of Metropolis algorithm is also suitable in  variational MC calculation.
+As shown in Alg. \ref{alg::vmc}, starting from given variational parameters and trail wave function, we move the sampling point randomly.
+Also, we accept or reject this movement according to $P_L$.
+
+It worth noticing that the movement step size is adjusted to obtain about $50\%$ acceptance. 
+High acceptation can trap movement locally which means a low accuracy; a low acceptation means a large waste of sampling points.
+So, it's a trade-off between accuracy and efficiency.
+
+\begin{algorithm}[tb]
+	\caption{Variational MC method}
+	\label{alg::vmc}
+	\KwIn{$\alpha,\beta, \omega$, $\Phi_{t}$, $E_L$,$P_L$}
+	\KwOut{($E_L(n1),E_L(n1+1),...,E_L(n1+n2-1)$)} 
+    // Sampling from n1 to n1+n2-1\;
+    // Initiate random starting position $r_1(0),r_2(0)$ \;
+    \For{$i=0;i<n1+n2-1;i++$}
+    {$r_1(i) = r_1(i-1)+step*r, r_2(i) = r_2(i-1)+step*r$ ($r$ ~ uniform[0,1])\;
+    Taking $u$ ~ uniform[0,1]\;
+    \If{u $ < P_L(i)/P_L(i-1)$}
+    {
+    accept movement $r_{i}=r_{i}$\;
+    }
+    Otherwise $r_{i}=r_{i-1}$\;
+    }
+    //Calculate $E_L,E_L^2 $\;
+	return ($E,\sigma$)\;
+\end{algorithm}

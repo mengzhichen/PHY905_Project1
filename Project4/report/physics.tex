@@ -1,0 +1,29 @@
+A simple physical system we studied is two electrons confined in a three dimensional H.O. potential. 
+It's Hamiltonian (in atomic unit (a.u.)) has three parts
+\begin{equation}
+	\hat{H}=\sum_{i=1,2}(-\frac{1}{2}\nabla_i^2+\frac{1}{2}\omega^2r_i^2)+\frac{1}{r_{12}},
+\end{equation}
+where two in parenthesis are their kinetic and potential energies, third is the Coulomb repulsion between electrons. 
+The first trail wave function we used is 
+\begin{equation}\label{eq:t1}
+	\Phi_{t1}(\vec{r}_1,\vec{r}_2)=C\rm{exp}(-\alpha \omega (\vec{r}_1+\vec{r}_2)/2)
+\end{equation}
+which simply the product of two electrons' wave functions in H.O. potential without repulsion.
+The $C$ works for normalization and $\alpha$ is the only one variational parameter here.
+
+One step further, in order to get rid of divergence when $r_{12}\rightarrow 0$, we have second trail wave function
+\begin{equation}\label{eq:t2}
+	\Phi_{t2}(\vec{r}_1,\vec{r}_2)=C\rm{exp}(-\alpha \omega (\vec{r}_1+\vec{r}_2)/2)\rm{exp}(\frac{r_{12}}{2(1+\beta r_{12})})
+\end{equation}
+which satisfies the cusp condition.
+In this $\Phi_{t2}$ we add an extra term called Jastrow factor.
+And now, it has two variational parameters $\alpha$ and $\beta$.
+Substituting these two trail wave functions to \ref{local}, we can obtain their local energies
+\begin{equation}
+	E_{L1}= \frac{1}{2}\omega^2(\vec{r}_1^2+\vec{r}_2^2)(1-\alpha ^2)+3 \alpha \omega + \frac{1}{r_{12}}
+\end{equation}
+\begin{equation}
+	E_{L2}= E_{L1}+\frac{1}{2(1+\beta r_{12}^2)}\left( \alpha \omega r_{12}-r_{12}^2-\frac{2}{r_{12}}+\frac{2\beta}{1+\beta r_{12}}\right).
+\end{equation}
+We can see the second local energy is much complicated than the first one with the help of the Jastrow factor. 
+We will see whether it worthwhile to pay this extra price from our results.

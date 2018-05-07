@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{mortenweb}
+Morten Hjorth-Jensen.
+\newblock Computational physics lectures: Variational monte carlo.
+\newblock
+  \url{https://compphysics.github.io/ComputationalPhysicsMSU/doc/Projects/2018/Project4/QuantumMonteCarlo/html/QuantumMonteCarlo.html}.
+\newblock Accessed May. 7, 2018.
+
+\bibitem{PhysRevA.48.3561}
+M.~Taut.
+\newblock Two electrons in an external oscillator potential: Particular
+  analytic solutions of a coulomb correlation problem.
+\newblock {\em Phys. Rev. A}, 48:3561--3566, Nov 1993.
+
+\end{thebibliography}
